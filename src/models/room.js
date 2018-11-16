@@ -1004,7 +1004,7 @@ Room.prototype.addPendingEvent = function(event, txnId) {
         for (let i = 0; i < this._timelineSets.length; i++) {
             const timelineSet = this._timelineSets[i];
             if (timelineSet.getFilter()) {
-                if (this._filter.filterRoomTimeline([event]).length) {
+                if (timelineSet.getFilter().filterRoomTimeline([event]).length) {
                     timelineSet.addEventToTimeline(event,
                         timelineSet.getLiveTimeline(), false);
                 }
